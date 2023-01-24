@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h3>Add new customer</h3>
+        <hr>
+        <form method="POST">
+            {% csrf_token %}
+        <table border="1">
+            <tr>
+                <td>Customer Name</td>
+                <td><input type="text" placeholder="Customer Name" name="customerName"></td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td><input type="text" placeholder="0927 123 456" name="customerPhone"></td>
+            </tr>
+            <tr>
+                <td>Customer Email</td>
+                <td><input type="text" placeholder="sample@email.com" name="customerEmail"></td>
+            </tr>
+            <tr>
+                <td>Customer Address</td>
+                <td><input type="text" placeholder="Complete Address" name="customerAddress"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Insert Record">
+        <a href="% url 'customerDisplay'%">Add new customer</a>
+        <hr>
+        {% if messages %}
+        {% for result in messages %}
+        <b>{{result}}</b>
+        {% endfor %}
+        {% endif %}
+    </form>
+    </center>
+</body>
+</html>
